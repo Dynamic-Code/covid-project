@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168002659-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-168002659-1');
+</script>
+
+
+    <meta charset="UTF-8">
+    <meta name="description" content="A Web App To Track The Stats of Coronavirus Patients In a Better a Way With Visuals">
+    <meta name="keywords" content="Covid19, Coronavirus, Global Pendimic, Stats">
+    <meta name="author" content="Abhinav Kumar">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona Tracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script src="https://kit.fontawesome.com/a780f25c51.js" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=PT+Sans+Caption:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/loader.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="icon" type="image/png" href="/img/coronavirus.png"/>
+  
+</head>
+<body>
+
+    <!-- Navbar -->
+
+    <nav id="navbar" class="navbar fixed-top d-flex justify-content-center">
+      <a href="#"> 
+        <span class="navbar-brand mb-0 h1"> <img src="img/coronavirus.png"/>
+        Corona Tracker</span></a>
+
+    </nav>
+
+
+    <!-- Landing Page -->
+
+    <div class="Main-Back d-flex flex-column justify-content-center align-items-center">
+      <div class="Main mb-3">Stay Safe. Stay Home.</div>
+      <p class = "main-content">
+        Human coronaviruses are common and are typically associated with mild illnesses, similar to the common cold.The corona virus COVID-19 is affecting 210 countries & territories around the world and 2 international conveyances.</p>
+        <button class="btn btn-danger" onclick="window.location.href='https://www.who.int/health-topics/coronavirus#tab=tab_1';" >Discover More</button>
+    </div>
+
+
+    <!-- Global Data -->
+
+  <div class="Global pt-3 pb-5">
+      <div class="text-center pt-5 pb-5 display-4" style="font-family:Bree Serif;" >Global Data</div>
+
+      <div class="card-deck ml-2 mr-2" >
+          <div class="card shadow-lg bg-white" id="Total"> 
+          
+            <div class="card-body text-center" id="TotalCase">
+              <p class="card-text font" id="total" ></p>
+            </div>
+            <div class="card-footer text-center">Total Cases</div>
+          
+          </div>
+
+            <div class="card shadow-lg bg-white" id="Recovered">
+          
+            <div class="card-body text-center">
+              <p class="card-text font" id="totalRecovered" ></p>
+            </div>
+            <div class="card-footer text-center">Total Recovered</div>
+            
+          </div>
+
+          <div class="card shadow-lg bg-white" id="Death">
+          
+              <div class="card-body text-center">
+                <p class="card-text font" id="TotalDeaths"></p>
+              </div>
+              <div class="card-footer text-center">Total Deaths</div>
+
+            
+          </div>
+        </div>
+
+         
+
+    </div>
+
+
+
+    <!-- Country Wise Data -->
+
+
+    <div class="Country-Wise pt-4">
+      <div class="p-4" style="overflow-y: scroll; height:500px;">
+        <div class=" pb-3 container-fluid display-4 text-center mb-4"style="font-family:Bree Serif;font-size:2.5rem;" ><strong>Country Wise Data</strong>
+        </div>
+
+        <table  class="table table-hover table-sm table-striped" id="tval">
+            <tr class="data-elementd-flex flex-row justify-content-center align-items-center">
+              <th scope="col">Sl. No.</th>
+              <th scope="col">Country</th>
+              <th scope="col">Total Confirmed</th>
+              <th scope="col"> Total Recovered</th>
+              <th scope="col"> Total Deaths</th>
+
+            </tr>
+         
+        </table>
+       
+      </div>
+
+     
+    </div>
+
+
+    <!-- Outbreak Trends -->
+
+    <div class="container-fluid display-4 py-4 text-center Outbreak"style="font-family:Bree Serif;  font-size: 2.5rem;">Outbreak Trend</div>
+
+    <div style="background-color: #efedfa;" id="chart"></div>
+
+  <!-- Daily New Cases -->
+
+    
+
+  <div class="container-fluid display-4 text-center Daily-Cases" style="font-family:Bree Serif; font-size: 2.5rem;" > New Daily Cases 
+  
+  </div>
+
+  <div style="background-color: #efedfa;" id="topten"></div>
+
+
+
+
+  <!-- How To Protect Yourself -->
+
+
+    <div class="Protect py-5">
+      <div class="How pb-3 container-fluid  text-center mb-4"style="font-family:Bree Serif;">How To Protect Yourself</div>
+          <div class="d-flex flex-column justify-content-center align-items-center">
+              <p class="Protect-content">The virus that causes COVID-19 is mainly transmitted through droplets generated when an infected person coughs, sneezes, or exhales. These droplets are too heavy to hang in the air, and quickly fall on floors or surfaces.
+              You can be infected by breathing in the virus if you are within close proximity of someone who has COVID-19, or by touching a contaminated surface and then your eyes, nose or mouth.</p>
+            <button class="btn btn-danger" onclick="window.location.href='https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public';" >Learn More</button>
+          </div>
+
+
+
+
+
+        <div class="row m-4 ">
+            <div class="col-lg-6">
+          <div class="card shadow-lg mt-5">
+            <div class="  card-body p-5">
+              
+              <div class="card-text d-flex flex-row">
+                <div id="Icons-Parent">
+                <div id="Contact" class="Illustrator-Icons">
+                  <i class="Cross fas fa-times-circle"></i>
+                </div>
+
+              
+                
+              </div>
+                <div class=" pl-4 Illustrator-Text"><h5>Avoid Close Contact</h5>
+                 <p>
+                  The CDC recommends maintaining a distance of approximately 6 feet from others in public places.
+                </p>
+              </div>
+            </div>
+
+            </div>
+          </div>
+
+
+          <div class="card shadow-lg mt-5">
+            <div class="  card-body p-5">
+              
+              <div class="card-text d-flex flex-row">
+                <div id="Icons-Parent">
+                <div id="Face" class="Illustrator-Icons" >
+                  <i class="Cross fas fa-times-circle"></i>
+                </div>
+
+              
+                
+              </div>
+                <div class=" pl-4 Illustrator-Text"><h5>Don’t Touch Face</h5> 
+                 <p>
+                Stop touching your face to reduce your chances of catching coronavirus, experts say.
+                  </p>
+              </div>
+            </div>
+
+            </div>
+          </div>
+
+
+
+          <div class="card shadow-lg mt-5">
+            <div class="  card-body p-5">
+                
+              <div class="card-text d-flex flex-row">
+                  <div id="Icons-Parent">
+                      <div id="Group" class="Illustrator-Icons" >
+                        <i class="Cross fas fa-times-circle"></i>
+                      </div>
+                  
+                  </div>
+
+                  <div class=" pl-4 Illustrator-Text"><h5>Avoid crowded places</h5> 
+                    <p>
+                      Avoid crowded places, especially if you are over 60 or have an underlying health condition such as diabetes, heart and lung diseases.
+                    </p>
+
+                  </div>
+                </div>
+
+            </div>
+          </div>
+
+
+
+            </div>      
+
+
+
+               <div class="col-lg-6">
+
+          
+          <div class="card shadow-lg mt-5">
+            <div class="  card-body p-5">
+              
+              <div class="card-text d-flex flex-row">
+                <div id="Icons-Parent">
+                <div id="Water"class="Illustrator-Icons" >
+                  <i class=" Right fas fa-check-circle"></i>
+                </div>
+
+              
+                
+              </div>
+                <div class=" pl-4 Illustrator-Text"><h5>Drink Much Watar</h5>
+                 <p>
+                  Drinking every 15 minutes would wash any virus down the esophagus so it can’t get into our lungs.
+                  </p>
+              </div>
+            </div>
+
+            </div>
+          </div>
+
+
+          <div class="card shadow-lg mt-5">
+            <div class="  card-body p-5">
+              
+              <div class="card-text d-flex flex-row">
+                <div id="Icons-Parent">
+                <div id="Mask"class="Illustrator-Icons" >
+                  <i class=" Right fas fa-check-circle"></i>
+                </div>
+
+              
+                
+              </div>
+                <div class=" pl-4 Illustrator-Text"><h5>Use Face Mask</h5>
+                 <p>
+                  Make sure the mask fits to cover your nose, mouth and chin.
+                  </p>
+              </div>
+            </div>
+
+            </div>
+          </div>
+
+
+          <div class="card shadow-lg mt-5">
+            <div class="  card-body p-5">
+              
+              <div class="card-text d-flex flex-row">
+                <div id="Icons-Parent">
+                <div id="Wash" class="Illustrator-Icons" >
+                  <i class=" Right fas fa-check-circle"></i>
+                </div>
+
+              
+                
+              </div>
+                <div class=" pl-4 Illustrator-Text"><h5>Wash Your Hands</h5>
+                <p>
+                 
+                  Regularly and thoroughly clean your hands with an alcohol-based hand rub or wash them with soap and water.
+                  </p>
+              </div>
+            </div>
+
+            </div>
+          </div>
+
+              </div>
+          </div>
+
+
+
+    </div>
+
+
+ 
+  <!-- Symptoms -->
+
+
+
+
+      <div class="Symptoms">
+
+            <div class="Symptoms-Head container-fluid  text-center py-5">
+              Coronavirus Symptoms
+            </div>
+
+            <div class="row mr-0 pr-0 py-5 ">
+              <div class="p-0 col-lg-4 d-flex flex-column justify-content-center align-items-center">
+
+                <div class="Symptoms-Block d-flex flex-column justify-content-center align-items-center pb-4">
+                    <div class="hex">
+
+                    </div>
+
+                    <img id="Symptoms-Icons" src="img/symptoms/symp-1.png" alt="">
+
+
+                    <div class="pb-5 Symptoms-Text">
+                      <h5>Dry Dough</h5>
+
+                            Continuous coughing a lot for more than an hour, or 3 or more coughing episodes in 24 hours.if you usually have a cough, it may be worse than usual.
+
+                    </div>
+
+                  </div>
+
+                  <div class="Symptoms-Block d-flex flex-column justify-content-center align-items-center pb-4">
+                    <div class="hex"></div>
+
+                    
+                    <img id="Symptoms-Icons" src="img/symptoms/symp-2.png" alt="">
+
+                  
+
+                    <div class="pb-5 Symptoms-Text">
+
+                      <h5>Sore Throat</h5>
+                           Older people, and those with underlying medical problems like high blood pressure, heart and lung problems, diabetes, or cancer.
+
+                    </div>
+
+                   </div>
+
+
+
+              </div>
+              
+
+
+              <div class="p-0 col-lg-4 d-flex flex-column justify-content-center align-items-center">
+
+
+                
+                <div class="Symptoms-Block d-flex flex-column justify-content-center align-items-center pb-4">
+                  
+                    <div class="hex"></div>
+                    
+                    <img id="Symptoms-Icons" src="img/symptoms/symp-3.png" alt="">
+
+                    <div class="pb-5 Symptoms-Text">
+                      <h5>Cold</h5>
+                          People of all ages who experience fever and/or cough associated with difficulty breathing/shortness of breath.
+
+                    </div>
+
+                </div>    
+                
+                <div class="Symptoms-Block d-flex flex-column justify-content-center align-items-center pb-4">
+                  
+                    <div class="hex"></div>
+                    
+                    <img id="Symptoms-Icons" src="img/symptoms/symp-4.png" alt="">
+
+                    <div class="pb-5 Symptoms-Text">
+                      <h5>Fever</h5>
+                         Fever you feel hot to touch on your chest or back (you do not need to measure your temperature). It is also may appear in 2-10 days.
+
+                    </div>
+
+                </div>
+              </div>
+
+
+             <div class="p-0 col-lg-4 d-flex flex-column justify-content-center align-items-center">
+
+
+                
+                    <div class="Symptoms-Block d-flex flex-column justify-content-center align-items-center pb-4">
+                    
+                      <div class="hex"></div>
+                      
+                      <img id="Symptoms-Icons" src="img/symptoms/symp-5.png" alt="">
+
+                      <div class="pb-5 Symptoms-Text">
+
+                        <h5>Headache</h5>
+                        Headache is a key symptom, experts say. Don't fixate on a relaxation, but know it's really danger until your headache reaches at maximum.
+                      </div>
+
+                  </div>    
+                  
+                    <div class="Symptoms-Block d-flex flex-column justify-content-center align-items-center pb-4">
+                          
+                            <div class="hex"></div>
+                            
+                            <img id="Symptoms-Icons" src="img/symptoms/symp-6.png" alt="">
+
+                            <div class="pb-5 Symptoms-Text">
+
+                              <h5>Vomiting</h5>
+                              Around 1 out of every 6 people who gets COVID-19 becomes seriously ill and develops difficulty, causes motion sickness and vomiting.
+
+                            </div>
+
+                    </div>
+
+              </div>
+            </div>
+
+        </div>
+
+
+
+
+  <!-- Hand-Wash -->
+        <div class="Hand">
+
+          <div class="Hand-Head container-fluid  text-center py-5">
+             How to wash your Hands
+            </div>
+
+          <div class="row py-5 m-0">
+
+            <div class=" Hand-Icons col-lg pl-4 ">
+              <img src="img/Hand/wash-1.png">
+              <div class=" pt-3 Hand-Text">WATER & SOAP</div>
+
+            </div>
+            
+            <div class=" Hand-Icons col-lg pl-4 ">
+                <img src="img/Hand/wash-2.png">
+                <div class=" pt-3 Hand-Text">PALM TO PALM</div>
+              </div>
+
+              <div class=" Hand-Icons col-lg pl-4 ">
+                <img src="img/Hand/wash-3.png">
+                <div class=" pt-3 Hand-Text">RUB FINGERS</div>
+              </div>           
+              
+              <div class=" Hand-Icons col-lg pl-4 ">
+                <img src="img/Hand/wash-4.png">
+                <div class=" pt-3 Hand-Text">RUB THUMBS</div>
+              </div>           
+              
+              <div class=" Hand-Icons col-lg pl-4 ">
+                <img src="img/Hand/wash-5.png">
+                <div class=" pt-3 Hand-Text">BACK OF HANDS</div>
+              </div>           
+              
+              <div class=" Hand-Icons col-lg pl-4 ">
+                <img src="img/Hand/wash-6.png">
+                <div class=" pt-3 Hand-Text">RUB WRISTS</div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+<footer class="d-flex flex-column justify-content-center align-items-center">
+
+        <div class="footer-text1 p-5"> 
+          Stay Safe. Stay Home.
+
+        </div>
+              
+                  <div class="footer-text pb-3  "> Created By <span>Abhinav Kumar</span><br>
+                  </div>
+                          <a class="btn btn-success" href="mailto:dynamic2106@gmailcom" > Contact Me </a> 
+
+
+</footer>
+
+
+
+
+
+
+
+
+        <!-- loading div -->
+      
+      
+        <div class="loading"></div>
+
+
+      <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+      <script src="js/main2.js"></script>
+  
+      <script src="js/detailed.js">  </script>
+
+     <script src="js/totalTable.js" ></script>
+
+     
+
+    <script>
+      $(function () {
+            $(window).on('scroll', function () {
+              if ( $(window).scrollTop() > 10 ) {
+                  $('.navbar').addClass('active');
+              } else {
+                  $('.navbar').removeClass('active');
+              }
+         });
+      });
+    </script>
+      <!-- loading script -->
+      <script src="js/loader.js"></script>
+
+</body>
+</html>

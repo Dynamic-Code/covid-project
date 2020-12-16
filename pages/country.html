@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168002659-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-168002659-1');
+</script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona Tracker</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="https://kit.fontawesome.com/a780f25c51.js" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=PT+Sans+Caption:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/loader.css">
+
+    <link rel="stylesheet" href="../css/country.css">
+  
+</head>
+<body>
+
+    <!-- Navbar -->
+
+    <nav id="navbar" class="navbar fixed-top d-flex justify-content-center">
+
+    </nav>
+
+
+    <!-- Landing Page -->
+
+    <div class="Main-Back d-flex flex-column justify-content-center align-items-center">
+      <div class="Main mb-3">Stay Safe. Stay Home.</div>
+      <p class = "main-content">
+        Human coronaviruses are common and are typically associated with mild illnesses, similar to the common cold.The corona virus COVID-19 is affecting 210 countries & territories around the world and 2 international conveyances.</p>
+        <button class="btn btn-danger" onclick="window.location.href='https://www.who.int/health-topics/coronavirus#tab=tab_1';" >Discover More</button>
+    </div>
+
+
+    <!-- Global Data -->
+
+  <div class="Global pt-3 pb-5">
+      <div class="text-center pt-5 pb-5 display-4" style="font-family:Bree Serif;" >Country Name</div>
+
+      <div class="card-deck ml-2 mr-2" >
+          <div class="card shadow-lg bg-white" id="Total"> 
+          
+            <div class="card-body text-center" id="TotalCase">
+              <p class="card-text font" id="total" ></p>
+            </div>
+            <div class="card-footer text-center">Total Cases</div>
+          
+          </div>
+
+            <div class="card shadow-lg bg-white" id="Recovered">
+          
+            <div class="card-body text-center">
+              <p class="card-text font" id="totalRecovered" ></p>
+            </div>
+            <div class="card-footer text-center">Total Recovered</div>
+            
+          </div>
+
+          <div class="card shadow-lg bg-white" id="Death">
+          
+              <div class="card-body text-center">
+                <p class="card-text font" id="TotalDeaths"></p>
+              </div>
+              <div class="card-footer text-center">Total Deaths</div>
+
+            
+          </div>
+        </div>
+
+          <div class="mt-5 text-center" >
+            <a href="pages/detailed.html"><strong style = "color:white;">More Details</strong></a>
+          </div>
+
+    </div>
+
+
+
+    <!-- Country Wise Data -->
+
+
+    <div class="Country-Wise pt-4">
+      <div class="p-4">
+        <div class=" pb-3 container-fluid display-4 text-center mb-4"style="font-family:Bree Serif;" ><strong>State Wise Data</strong>
+        </div>
+
+        <table  class="table table-hover table-sm table-striped" id="tval">
+            <tr class="animation-element">
+              <th scope="col">Sl. No.</th>
+              <th scope="col">Country</th>
+              <th scope="col">Total Confirmed</th>
+              <th scope="col"> Total Recovered</th>
+              <th scope="col"> Total Deaths</th>
+
+            </tr>
+         
+        </table>
+        <div class="text-center ">
+        <a href="pages/GlobalTable.html"><strong>Full List Here!!</strong></a>
+      </div>
+      </div>
+
+     
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- loading div -->
+      
+      
+        <div class="loading"></div>
+
+
+      <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+      <script src="../js/main2.js"></script>
+  
+
+     <script src="../js/totalTable.js" ></script>
+
+     <script>
+      $(function(){
+       $("#navbar").load("nav.html");
+      });
+    </script>
+
+    <script>
+      $(function () {
+            $(window).on('scroll', function () {
+              if ( $(window).scrollTop() > 10 ) {
+                  $('.navbar').addClass('active');
+              } else {
+                  $('.navbar').removeClass('active');
+              }
+         });
+      });
+    </script>
+      <!-- loading script -->
+      <script src="../js/loader.js"></script>
+
+</body>
+</html>

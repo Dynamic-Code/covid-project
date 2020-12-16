@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</script>
+
+    <style>
+        .loading{
+
+            background: rgba(105, 104, 117, 0.8) 
+                url('img/loading.gif') 
+                50% 50% 
+                no-repeat; 
+
+                display:    block;
+                position:   fixed;
+                z-index:    1000;
+                top:        0;
+                left:       0;
+                height:     100%;
+                width:      100%;
+ 
+        }
+
+        body.loading .loading {
+    overflow: hidden;   
+}
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .loading {
+    display: block;
+}
+    </style>
+
+<div class="loading"></div>
+
+
+
+
+<script>
+    $(window).on("load",function(){
+        $(".loading").fadeOut("slow");
+    })
+</script>
+<!-- <script>
+setTimeout(function () {
+    $(".loading").fadeOut("slow");
+}, 3000);
+
+</script> -->
+</body>
+</html>
