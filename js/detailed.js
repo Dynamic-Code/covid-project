@@ -59,7 +59,7 @@ function (data){
 let dailyCases = [];
 let country = [];
 let dailyDeaths = [];
-$.get("https://api.coronatracker.com/v3/analytics/dailyNewStats?limit=10",
+$.get("https://api.coronatracker.com/v5/analytics/dailyNewStats?limit=10",
 function (data){
         for(i = 0;i<10;i++){
           dailyCases[i] = data[i].daily_cases;

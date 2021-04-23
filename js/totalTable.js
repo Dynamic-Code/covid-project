@@ -19,7 +19,7 @@
             tval.rows[i].cells[0].innerHTML = i;
             x.insertCell(1);
 
-            tval.rows[i].cells[1].innerHTML ='<img src = "https://www.countryflags.io/'+CC+'/shiny/32.png"/> &nbsp;'+data[i-1]['country'];
+            tval.rows[i].cells[1].innerHTML ='<img src = "https://flagcdn.com/32x24/'+CC+'.png"/> &nbsp;'+data[i-1]['country'];
 
 
             x.insertCell(2);
