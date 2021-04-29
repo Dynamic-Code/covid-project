@@ -94,7 +94,9 @@ box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
     }
     
 
-
+    .table-hover tbody tr:hover td {
+        background: rgba(153, 128, 250,0.3);
+    }
 
   .Country-Wise{
     background-color: #f0f8ff;

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corona Tracker</title>
+
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script src="https://kit.fontawesome.com/a780f25c51.js" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=PT+Sans+Caption:wght@400;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/loader.css">
+
+    <link rel="stylesheet" href="../css/CountryWise.css">
+
+    <link rel="icon" type="image/png" href="/img/coronavirus.png"/>
+
+ 
+</head>
+<body>
+
+        <!-- Navbar -->
+
+        <nav id="navbar" class="navbar fixed-top d-flex justify-content-center">
+            <a href="#"> 
+              <span class="navbar-brand mb-0 h1"> <img src="../img/coronavirus.png"/>
+              Corona Tracker</span></a>
+      
+          </nav>
+    
+
+          
+    <!-- State Data -->
+
+  <div class="State pb-1">
+    <div class="text-center pt-5 pb-5 display-4" style="font-family:Bree Serif;" id="CountryName">State Name Data</div>
+
+    <div class="card-deck ml-2 mr-2" >
+        <div class="card shadow-lg bg-white" id="Total"> 
+        
+          <div class="card-body text-center pb-1" id="TotalCase">
+            <p class="card-text font" id="total" ></p>
+            <div class="surpluscases text-center">
+              <span>+</span>
+              <span id="newcase"></span>
+              <span>New Cases</span>
+             </div>
+          </div>
+           
+          <div class="card-footer text-center">Total Cases</div>
+        
+        </div>
+
+          <div class="card shadow-lg bg-white" id="Recovered">
+        
+          <div class="card-body text-center">
+            <p class="card-text font" id="totalRecovered" ></p>
+          </div>
+          <div class="card-footer text-center">Total Recovered</div>
+          
+        </div>
+
+        <div class="card shadow-lg bg-white" id="Death">
+        
+            <div class="card-body text-center">
+              <p class="card-text font" id="TotalDeaths"></p>
+              <div class="surplusdeaths text-center">
+                <span>+</span>
+                <span id="newdeaths"></span>
+                <span>New Deaths</span>
+               </div>
+            </div>
+           
+            <div class="card-footer text-center">Total Deaths</div>
+
+          
+        </div>
+      </div>
+
+  <!-- FatalityRate -->
+
+       
+      <div class="card-deck ml-2 mr-2 mt-5 mb-5" >
+        <div class="card shadow-lg bg-white" id="Total"> 
+        
+          <div class="card-body p-0 text-center" id="FatalityRate">
+            <p class="card-text font" id="total" ></p>
+          </div>
+        
+        </div>
+    
+        <!-- Recovery Rate -->
+        <div class="card shadow-lg bg-white" id="Death">
+        
+            <div class="card-body p-0 text-center">
+              <p class="card-text font" id="RecoveryRate"></p>
+            </div>
+    
+          
+        </div>
+      </div>
+
+
+  </div>
+
+  <div class="pl-2 pr-2 pt-3 pb-5" id="history"></div>
+
+  <footer class="d-flex flex-column justify-content-center align-items-center">
+
+    <div class="footer-text1 p-5"> 
+      Stay Safe. Stay Home.
+
+    </div>
+          
+              <div class="footer-text pb-3  "> Created By <span>Abhinav Kumar</span><br>
+              </div>
+                      <a class="btn btn-success" href="mailto:dynamic2106@gmailcom" > Contact Me </a> 
+
+
+</footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+  <script src="../js/countryWise.js"></script>
+  <script>
+    $(function () {
+          $(window).on('scroll', function () {
+            if ( $(window).scrollTop() > 10 ) {
+                $('.navbar').addClass('active');
+            } else {
+                $('.navbar').removeClass('active');
+            }
+       });
+    });
+  </script>
+</body>
+</html>
