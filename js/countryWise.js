@@ -144,11 +144,12 @@ let date = []
 let hiscase = []
 let hisdeath = []
 let hisrecover = []
-
+var todaysdate = moment(new Date()).format("YYYY-MM-DD");
+// console.log(todaysdate);
 // daily new case history graph
 
 $.get(
-  "https://api.coronatracker.com/v5/analytics/newcases/country?countryCode="+CC+"&startDate=2020-01-01&endDate=2021-04-29", function (data) {
+  "https://api.coronatracker.com/v5/analytics/newcases/country?countryCode="+CC+"&startDate=2020-01-01&endDate="+todaysdate, function (data) {
     for(i = 0; i<=data.length-1;i++ ){
       date[i] = data[i].last_updated;
       hiscase[i] = Math.abs(data[i].new_infections);
@@ -177,7 +178,8 @@ $.get(
       enabled: false
     },
     stroke: {
-      curve: 'smooth'
+      curve: 'smooth',
+      width: 2,
     },
     xaxis: {
       type: 'datetime',

@@ -32,7 +32,8 @@ function (data){
             enabled: false
           },
           stroke: {
-            curve: 'smooth'
+            curve: 'smooth',
+            width: 2,
           },
           xaxis: {
             type: 'datetime',
