@@ -1,31 +1,25 @@
 /* loading  */
 
+.loading {
+  background: rgba(105, 104, 117, 0.8) url("../img/loading.gif") 50% 50%
+    no-repeat;
 
-.loading{
+  display: block;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+}
 
-    background: rgba(105, 104, 117, 0.8) 
-        url('../img/loading.gif') 
-        50% 50% 
-        no-repeat; 
-    
-        display:    block;
-        position:   fixed;
-        z-index:    1000;
-        top:        0;
-        left:       0;
-        height:     100%;
-        width:      100%;
-        z-index:    1000;
-    
-    }
-    
-    body.loading .loading {
-    overflow: hidden;   
-    }
-    
-    /* Anytime the body has the loading class, our
+body.loading .loading {
+  overflow: hidden;
+}
+
+/* Anytime the body has the loading class, our
     modal element will be visible */
-    body.loading .loading {
-    display: block;
-    }
-    
+body.loading .loading {
+  display: block;
+}
