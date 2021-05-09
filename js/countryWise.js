@@ -156,7 +156,7 @@ window.addEventListener("load", () => {
   $.get(
     "https://api.coronatracker.com/v5/analytics/newcases/country?countryCode=" +
     CC +
-    "&startDate=2020-01-01&endDate=" +
+    "&startDate=2020-01-02&endDate=" +
     todaysdate,
     function (data) {
       for (i = 0; i <= data.length - 1; i++) {
